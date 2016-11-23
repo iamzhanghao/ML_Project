@@ -1,59 +1,103 @@
 import pickle, pprint
 
 pp = pprint.PrettyPrinter(indent=5)
+# files=["CN","EN","ES","SG"]
+files = ["CN"]
 
-CNemission = pickle.load(open("emissions/CNemission.txt", "rb"))
-ENemission = pickle.load(open("emissions/ENemission.txt", "rb"))
-ESemission = pickle.load(open("emissions/ESemission.txt", "rb"))
-SGemission = pickle.load(open("emissions/SGemission.txt", "rb"))
-pp.pprint(ESemission)
+CNemission = pickle.load(open("emissions/CN.txt", "rb"))
+ENemission = pickle.load(open("emissions/EN.txt", "rb"))
 
-count_y_y = {"start": {}}
-count_y_x = {}
+transition_count = {"start": {}}
 
-def learn(data):
+for type in files:
+    file = open("raw/" + type + "/train", encoding='utf8')
+    rawinput = file.readlines()
+    # pp.pprint(rawinput)
+
+    data = [[]]
+    index = 0
+    subindex = 0
+    for line in rawinput:
+        if line == "\n":
+            index += 1
+            data.append([])
+        else:
+            elements = line.split(" ")
+            if len(elements) != 0:
+                last = elements[len(elements) - 1]
+                last = last[:len(last) - 1]
+                data[index].append(last)
+
+    data.pop()
+
+    # Count numbers
     for line in data:
         ##transition
-        for i in range(len(line[0])+1):
+        for i in range(len(line) + 1):
             if i == 0:
                 ##start
                 from_state = "start"
-                to_state = line[0][i]
-                if line[0][i] in count_y_y[from_state]:
-                    count_y_y[from_state][to_state] += 1
+                to_state = line[0]
+                if line[0] in transition_count[from_state]:
+                    transition_count[from_state][to_state] += 1
                 else:
-                    count_y_y[from_state][to_state] = 1
+                    transition_count[from_state][to_state] = 1
             else:
                 ##stop
-                if i == len(line[0]):
-                    from_state = line[0][i - 1]
+                if i == len(line):
+                    from_state = line[i - 1]
                     to_state = "stop"
                 ##the rest
                 else:
-                    from_state = line[0][i -1]
-                    to_state = line[0][i]
-                if from_state in count_y_y:
-                    if to_state in count_y_y[from_state]:
-                        count_y_y[from_state][to_state] += 1
+                    from_state = line[i - 1]
+                    to_state = line[i]
+                if from_state in transition_count:
+                    if to_state in transition_count[from_state]:
+                        transition_count[from_state][to_state] += 1
                     else:
-                        count_y_y[from_state][to_state] = 1
+                        transition_count[from_state][to_state] = 1
                 else:
-                    count_y_y[from_state] = {}
-                    count_y_y[from_state][to_state] = 1
+                    transition_count[from_state] = {}
+                    transition_count[from_state][to_state] = 1
 
-        for i in range(len(line[0])):
-            observation = line[1][i]
-            state = line[0][i]
-            if state not in count_y_x:
-                count_y_x[state] = {}
-                count_y_x[state][observation] = 1
-            elif observation not in count_y_x[state]:
-                count_y_x[state][observation] = 1
-            else:
-                count_y_x[state][observation] += 1
+    # pp.pprint(transition_count)
 
-observed_sequence = ["b","b"]
+states = ["start", "B-negative", "B-neutral", "B-positive","O", "I-negative", "I-neutral", "I-positive", "stop"]
+transition = {}
 
+
+def a(f, t, count):
+    sum = 0
+    for state in count[f]:
+        sum += count[f][state]
+    return count[f][t] / float(sum)
+
+
+for from_state in states:
+    for to_state in states:
+        print(from_state)
+        print(to_state)
+        if from_state not in transition:
+            transition[from_state] = {}
+        if from_state in transition_count and to_state in transition_count[from_state]:
+            # print("a("+from_state+", "+to_state+") = "+str(a(from_state,to_state)))
+            transition[from_state][to_state] = a(from_state, to_state, transition_count)
+        else:
+            # print("a("+from_state+", "+to_state+") = 0")
+            transition[from_state][to_state] = 0
+# pp.pprint(transition)
+
+
+
+
+
+
+
+
+
+#
+# observed_sequence = ["b","b"]
+#
 # def viterbi(observed_sequence,states):
 #     pure_state=states[1:len(states)-1]
 #     path=["start"]
@@ -96,5 +140,3 @@ observed_sequence = ["b","b"]
 #                     max_previous_state=previous_state
 #             path_dict[layer][current_state]={"p":max_p,"previous":max_previous_state}
 #
-#
-
