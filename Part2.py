@@ -54,3 +54,4 @@ for type in files:
                 emission[str(i)][j] = 1.0 / (y[j] + 1)
 
     pickle.dump(emission, open("emissions/"+type+".txt", "wb"))
+

@@ -3,12 +3,14 @@ import pickle, pprint
 pp = pprint.PrettyPrinter(indent=5)
 
 states = ["start", "B-negative", "B-neutral", "B-positive", "O", "I-negative", "I-neutral", "I-positive", "stop"]
-# files=["CN","EN","ES","SG"]
-files = ["CN"]
+files=["CN","EN","ES","SG"]
+# files = ["CN"]
 
 
 transition_dict={}
 emission_dict={}
+viterbi_dict={}
+observed_sequences_dict={}
 
 for type in files:
 
@@ -127,13 +129,15 @@ def viterbi(observed_sequence, states, a_dict, b_dict):
                         a_dict[previous_state][current_state] * \
                         b_dict[observed_sequence[layer - 1]][current_state]
                 else:
-                    p=0
+                    p= path_dict[layer - 1][previous_state]["p"] * \
+                        a_dict[previous_state][current_state] * \
+                        0.000001
                 if p > max_p:
                     max_p = p
                     max_previous_state = previous_state
             path_dict[layer][current_state] = {"p": max_p, "previous": max_previous_state}
 
-    pp.pprint(path_dict)
+    # pp.pprint(path_dict)
 
     # backtracking
     current_layer = n
@@ -141,6 +145,8 @@ def viterbi(observed_sequence, states, a_dict, b_dict):
     while current_layer >= 0:
         path_reverse.append(path_dict[current_layer+1][path_reverse[len(path_reverse)-1]]['previous'])
         current_layer -= 1
+
+    # pp.pprint(path_dict)
 
     return path_reverse[::-1][1:len(path_reverse)-1]
 
@@ -162,13 +168,36 @@ for type in files:
     states_viterbi=[[]]
     index=0
     for observed_sequence in observed_sequences:
-        print(index)
-        pp.pprint(observed_sequences[index])
+        # pp.pprint(observed_sequences[index])
         for state in viterbi(observed_sequence,states,transition_dict[type],emission_dict[type]):
             states_viterbi[index].append(state)
-        pp.pprint(states_viterbi[index])
+        # pp.pprint(states_viterbi[index])
         states_viterbi.append([])
         index += 1
     states_viterbi.pop()
+
+    viterbi_dict[type]=states_viterbi
+    observed_sequences_dict[type] = observed_sequences
+
+
+###write to file
+for type in files:
+    msg=""
+    for i in range(len(viterbi_dict[type])):
+        for j in range(len(viterbi_dict[type][i])):
+            msg += observed_sequences_dict[type][i][j]
+            msg += ' '
+            msg += viterbi_dict[type][i][j]
+            msg += '\n'
+        msg += '\n'
+
+    # print(msg)
+    result = open("result/"+type+"/dev.p3.out","wb")
+    result.write(msg.encode("utf-8"))
+    result.close()
+
+
+
+
 
 
