@@ -4,7 +4,7 @@ pp = pprint.PrettyPrinter(indent=5)
 
 states = ["start", "B-negative", "B-neutral", "B-positive", "O", "I-negative", "I-neutral", "I-positive", "stop"]
 # files=["CN","EN","ES","SG"]
-files = ["EN"]
+files = ["CN"]
 
 
 transition_dict={}
@@ -133,6 +133,8 @@ def viterbi(observed_sequence, states, a_dict, b_dict):
                     max_previous_state = previous_state
             path_dict[layer][current_state] = {"p": max_p, "previous": max_previous_state}
 
+    pp.pprint(path_dict)
+
     # backtracking
     current_layer = n
     path_reverse = ["stop"]
@@ -144,12 +146,29 @@ def viterbi(observed_sequence, states, a_dict, b_dict):
 
 
 for type in files:
-    # observed_sequence=["Whitney","Houston","fans","to","follow","funeral","on","web","http://t.co/ud9nHNuz"]
-    observed_sequence=["is","still","half","clueless","about","twitter","haha"]
-    # pp.pprint(emission_dict["EN"])
-    pp.pprint(observed_sequence)
-    pp.pprint(viterbi(observed_sequence,states,transition_dict[type],emission_dict[type]))
+    file = open("raw/"+type + "/dev.in", encoding='utf8')
+    rawinput = file.readlines()
 
+    observed_sequences=[[]]
+    index=0
+    for input in rawinput:
+        if input=="\n":
+            observed_sequences.append([])
+            index += 1
+        else:
+            observed_sequences[index].append(input.strip('\n'))
+    observed_sequences.pop()
 
+    states_viterbi=[[]]
+    index=0
+    for observed_sequence in observed_sequences:
+        print(index)
+        pp.pprint(observed_sequences[index])
+        for state in viterbi(observed_sequence,states,transition_dict[type],emission_dict[type]):
+            states_viterbi[index].append(state)
+        pp.pprint(states_viterbi[index])
+        states_viterbi.append([])
+        index += 1
+    states_viterbi.pop()
 
 
