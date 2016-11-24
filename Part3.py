@@ -12,11 +12,11 @@ emission_dict={}
 viterbi_dict={}
 observed_sequences_dict={}
 
-for type in files:
+for language in files:
 
     transition_count = {"start": {}}
     ##read data
-    file = open("raw/" + type + "/train", encoding='utf8')
+    file = open("raw/" + language + "/train", encoding='utf8')
     rawinput = file.readlines()
     ##import data
     data = [[]]
@@ -84,9 +84,9 @@ for type in files:
                 transition[from_state][to_state] = 0
 
     ####load parameters
-    emission = pickle.load(open("emissions/"+type+".txt", "rb"))
-    emission_dict[type]=emission
-    transition_dict[type]=transition
+    emission = pickle.load(open("emissions/" + language + ".txt", "rb"))
+    emission_dict[language]=emission
+    transition_dict[language]=transition
 
 # pp.pprint(transition_dict)
 # pp.pprint(emission_dict)
@@ -151,8 +151,8 @@ def viterbi(observed_sequence, states, a_dict, b_dict):
     return path_reverse[::-1][1:len(path_reverse)-1]
 
 
-for type in files:
-    file = open("raw/"+type + "/dev.in", encoding='utf8')
+for language in files:
+    file = open("raw/" + language + "/dev.in", encoding='utf8')
     rawinput = file.readlines()
 
     observed_sequences=[[]]
@@ -169,35 +169,29 @@ for type in files:
     index=0
     for observed_sequence in observed_sequences:
         # pp.pprint(observed_sequences[index])
-        for state in viterbi(observed_sequence,states,transition_dict[type],emission_dict[type]):
+        for state in viterbi(observed_sequence, states, transition_dict[language], emission_dict[language]):
             states_viterbi[index].append(state)
         # pp.pprint(states_viterbi[index])
         states_viterbi.append([])
         index += 1
     states_viterbi.pop()
 
-    viterbi_dict[type]=states_viterbi
-    observed_sequences_dict[type] = observed_sequences
+    viterbi_dict[language]=states_viterbi
+    observed_sequences_dict[language] = observed_sequences
 
 
 ###write to file
-for type in files:
+for language in files:
     msg=""
-    for i in range(len(viterbi_dict[type])):
-        for j in range(len(viterbi_dict[type][i])):
-            msg += observed_sequences_dict[type][i][j]
+    for i in range(len(viterbi_dict[language])):
+        for j in range(len(viterbi_dict[language][i])):
+            msg += observed_sequences_dict[language][i][j]
             msg += ' '
-            msg += viterbi_dict[type][i][j]
+            msg += viterbi_dict[language][i][j]
             msg += '\n'
         msg += '\n'
 
     # print(msg)
-    result = open("result/"+type+"/dev.p3.out","wb")
+    result = open("result/" + language + "/dev.p3.out", "wb")
     result.write(msg.encode("utf-8"))
     result.close()
-
-
-
-
-
-
