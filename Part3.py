@@ -117,3 +117,7 @@ for language in components.files:
     result.close()
     print("result/" + language + "/dev.p3.out saved!")
 
+
+
+pp.pprint(emission_dict["EN"])
+

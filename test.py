@@ -35,4 +35,6 @@ buf.push({"p":0.2, "path":["1","2"]},"6")
 pp.pprint(buf.getBuffer())
 pp.pprint(buf.getPath(3))
 
+print(buf.getP(1))
+
 

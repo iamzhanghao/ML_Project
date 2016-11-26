@@ -14,10 +14,6 @@ def train_emission():
                     y[str(array[1])] = 0##################################################0
                 else:
                     y[str(array[1])] += 1
-
-        print(y)
-
-
         testfile = open("raw/" + language + "/dev.in", encoding='utf8')
         test_x = testfile.readlines()
         x = []
@@ -133,6 +129,6 @@ def train_transition():
         pickle.dump(transition, open("params/transition/" + language + ".txt", "wb"))
         print("Finished training transition params for "+ language)
 
-#
+# #
 # train_emission()
 # train_transition()
