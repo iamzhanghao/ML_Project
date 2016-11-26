@@ -1,18 +1,14 @@
 import pickle
-import train_params
-
-
-files=["CN","EN","ES","SG"]
+import train_params, components
 
 train_params.train_emission()
 
+for language in components.files:
 
-for language in files:
-
-    emission = pickle.load(open("params/emissions/" + language + ".txt", "rb"))
-    testfile = open("raw/"+language+"/dev.in", encoding='utf8')
+    emission = pickle.load(open("params/emission/" + language + ".txt", "rb"))
+    testfile = open("raw/" + language + "/dev.in", encoding='utf8')
     test_x = testfile.readlines()
-    result = open("result/"+language+"/dev.p2.out", "wb")
+    result = open("result/" + language + "/dev.p2.out", "wb")
     x = {}
 
     for i in test_x:
@@ -30,4 +26,3 @@ for language in files:
             result.write("\n".encode("utf-8"))
 
     result.close()
-

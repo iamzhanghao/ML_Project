@@ -1,3 +1,7 @@
+files = ["CN", "EN", "ES", "SG"]
+states = ["start", "B-negative", "B-neutral", "B-positive", "O", "I-negative", "I-neutral", "I-positive", "stop"]
+
+
 class Buffer:
 
     def __init__(self):
@@ -19,3 +23,4 @@ class Buffer:
 
     def getSize(self):
         return len(self.__buffer)
+

@@ -1,6 +1,4 @@
-import pickle
-
-files = ["CN", "EN", "ES", "SG"]
+import pickle, components
 
 
 def train_emission():
@@ -57,4 +55,75 @@ def train_emission():
         pickle.dump(emission, open("params/emissions/" + language + ".txt", "wb"))
 
 
+def train_transition():
+
+    for language in components.files:
+
+        transition_count = {"start": {}}
+        ##read data
+        file = open("raw/" + language + "/train", encoding='utf8')
+        rawinput = file.readlines()
+        ##import data
+        data = [[]]
+        index = 0
+        subindex = 0
+        for line in rawinput:
+            if line == "\n":
+                index += 1
+                data.append([])
+            else:
+                elements = line.split(" ")
+                if len(elements) != 0:
+                    last = elements[len(elements) - 1]
+                    last = last[:len(last) - 1]
+                    data[index].append(last)
+        data.pop()
+
+        # Count numbers
+        for line in data:
+            ##transition
+            for i in range(len(line) + 1):
+                if i == 0:
+                    ##start
+                    from_state = "start"
+                    to_state = line[0]
+                    if line[0] in transition_count[from_state]:
+                        transition_count[from_state][to_state] += 1
+                    else:
+                        transition_count[from_state][to_state] = 1
+                else:
+                    ##stop
+                    if i == len(line):
+                        from_state = line[i - 1]
+                        to_state = "stop"
+                    ##the rest
+                    else:
+                        from_state = line[i - 1]
+                        to_state = line[i]
+                    if from_state in transition_count:
+                        if to_state in transition_count[from_state]:
+                            transition_count[from_state][to_state] += 1
+                        else:
+                            transition_count[from_state][to_state] = 1
+                    else:
+                        transition_count[from_state] = {}
+                        transition_count[from_state][to_state] = 1
+
+        def a(f, t, count):
+            sum = 0
+            for state in count[f]:
+                sum += count[f][state]
+            return count[f][t] / float(sum)
+
+        transition = {}
+        for from_state in components.states:
+            for to_state in components.states:
+                if from_state not in transition:
+                    transition[from_state] = {}
+                if from_state in transition_count and to_state in transition_count[from_state]:
+                    transition[from_state][to_state] = a(from_state, to_state, transition_count)
+                else:
+                    transition[from_state][to_state] = 0
+
+        pickle.dump(transition, open("params/transition/" + language + ".txt", "wb"))
 
