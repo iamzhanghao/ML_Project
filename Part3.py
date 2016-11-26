@@ -198,4 +198,4 @@ for language in files:
 
 # pp.pprint(emission_dict["EN"])
 
-# pp.pprint(emission_dict['EN'])
+pp.pprint(emission_dict['EN'])
