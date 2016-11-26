@@ -1,6 +1,8 @@
 import pickle
 import train_params, components
 
+
+print("Training emission params ...")
 train_params.train_emission()
 
 for language in components.files:
@@ -26,3 +28,4 @@ for language in components.files:
             result.write("\n".encode("utf-8"))
 
     result.close()
+    print("result/" + language + "/dev.p2.out saved!")

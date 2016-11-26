@@ -2,7 +2,7 @@ import pickle, components
 
 
 def train_emission():
-    for language in files:
+    for language in components.files:
         file = open("raw/" + language + "/train", encoding='utf8')
         en_file = file.readlines()
         y = {}
@@ -11,9 +11,13 @@ def train_emission():
             array = i.split(" ")
             if len(array) == 2:
                 if array[1] not in y.keys():
-                    y[str(array[1])] = 0
+                    y[str(array[1])] = 0##################################################0
                 else:
                     y[str(array[1])] += 1
+
+        print(y)
+
+
         testfile = open("raw/" + language + "/dev.in", encoding='utf8')
         test_x = testfile.readlines()
         x = []
@@ -52,7 +56,8 @@ def train_emission():
                 for j in y.keys():
                     emission[str(i)][j] = 1.0 / (y[j] + 1)
 
-        pickle.dump(emission, open("params/emissions/" + language + ".txt", "wb"))
+        pickle.dump(emission, open("params/emission/" + language + ".txt", "wb"))
+        print("Finished training emission params for "+ language)
 
 
 def train_transition():
@@ -126,4 +131,8 @@ def train_transition():
                     transition[from_state][to_state] = 0
 
         pickle.dump(transition, open("params/transition/" + language + ".txt", "wb"))
+        print("Finished training transition params for "+ language)
 
+#
+# train_emission()
+# train_transition()

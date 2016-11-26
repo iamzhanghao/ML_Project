@@ -4,9 +4,9 @@ states = ["start", "B-negative", "B-neutral", "B-positive", "O", "I-negative", "
 
 class Buffer:
 
-    def __init__(self):
+    def __init__(self,size):
         self.__buffer={}
-        for i in range(5):
+        for i in range(size):
             self.__buffer[i]={"p": 0, "path":[]}
 
     def push(self, item, node):
@@ -18,9 +18,20 @@ class Buffer:
                 self.__buffer[i]["path"].append(node)
                 break
 
+
+
+
     def getBuffer(self):
         return self.__buffer
 
+    def getPath(self,k):
+        return self.__buffer[k]["path"]
+
     def getSize(self):
         return len(self.__buffer)
+
+    def __str__(self):
+        return self.__buffer
+
+
 

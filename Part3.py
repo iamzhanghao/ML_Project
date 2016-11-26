@@ -58,7 +58,7 @@ def viterbi(observed_sequence, states, a_dict, b_dict):
                 else:
                     p = path_dict[layer - 1][previous_state]["p"] * \
                         a_dict[previous_state][current_state] * \
-                        0.000001
+                        0.00001
                 if p > max_p:
                     max_p = p
                     max_previous_state = previous_state
@@ -115,3 +115,5 @@ for language in components.files:
     result = open("result/" + language + "/dev.p3.out", "wb")
     result.write(msg.encode("utf-8"))
     result.close()
+    print("result/" + language + "/dev.p3.out saved!")
+
