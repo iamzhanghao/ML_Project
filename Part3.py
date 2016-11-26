@@ -3,8 +3,8 @@ import pickle, pprint
 pp = pprint.PrettyPrinter(indent=5)
 
 states = ["start", "B-negative", "B-neutral", "B-positive", "O", "I-negative", "I-neutral", "I-positive", "stop"]
-# files=["CN","EN","ES","SG"]
-files = ["EN"]
+files=["CN","EN","ES","SG"]
+# files = ["EN"]
 
 
 transition_dict={}
@@ -148,10 +148,6 @@ def viterbi(observed_sequence, states, a_dict, b_dict):
 
     # pp.pprint(path_dict)
 
-
-    pp.pprint(path_dict)
-    print(path_reverse[::-1][1:len(path_reverse)-1])
-
     return path_reverse[::-1][1:len(path_reverse)-1]
 
 
@@ -202,4 +198,4 @@ for language in files:
 
 # pp.pprint(emission_dict["EN"])
 
-pp.pprint(emission_dict['EN'])
+# pp.pprint(emission_dict['EN'])
