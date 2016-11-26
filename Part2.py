@@ -3,8 +3,8 @@ import pickle
 
 files=["CN","EN","ES","SG"]
 
-for type in files:
-    file = open("raw/"+type+"/train", encoding='utf8')
+for language in files:
+    file = open("raw/" + language + "/train", encoding='utf8')
     en_file = file.readlines()
     y = {}
     for i in en_file:
@@ -15,7 +15,7 @@ for type in files:
                 y[str(array[1])] = 0
             else:
                 y[str(array[1])] += 1
-    testfile = open("raw/"+type+"/dev.in", encoding='utf8')
+    testfile = open("raw/" + language + "/dev.in", encoding='utf8')
     test_x = testfile.readlines()
     x = []
     counter = 0
@@ -53,7 +53,7 @@ for type in files:
             for j in y.keys():
                 emission[str(i)][j] = 1.0 / (y[j] + 1)
 
-    pickle.dump(emission, open("emissions/"+type+".txt", "wb"))
+    pickle.dump(emission, open("emissions/" + language + ".txt", "wb"))
 
 
 for language in files:
