@@ -3,8 +3,8 @@ import pickle, pprint
 pp = pprint.PrettyPrinter(indent=5)
 
 states = ["start", "B-negative", "B-neutral", "B-positive", "O", "I-negative", "I-neutral", "I-positive", "stop"]
-files=["CN","EN","ES","SG"]
-# files = ["CN"]
+# files=["CN","EN","ES","SG"]
+files = ["EN"]
 
 
 transition_dict={}
@@ -32,7 +32,6 @@ for language in files:
                 last = elements[len(elements) - 1]
                 last = last[:len(last) - 1]
                 data[index].append(last)
-
     data.pop()
 
     # Count numbers
@@ -64,6 +63,8 @@ for language in files:
                 else:
                     transition_count[from_state] = {}
                     transition_count[from_state][to_state] = 1
+
+
 
     def a(f, t, count):
         sum = 0
@@ -137,7 +138,6 @@ def viterbi(observed_sequence, states, a_dict, b_dict):
                     max_previous_state = previous_state
             path_dict[layer][current_state] = {"p": max_p, "previous": max_previous_state}
 
-    # pp.pprint(path_dict)
 
     # backtracking
     current_layer = n
@@ -147,6 +147,10 @@ def viterbi(observed_sequence, states, a_dict, b_dict):
         current_layer -= 1
 
     # pp.pprint(path_dict)
+
+
+    pp.pprint(path_dict)
+    print(path_reverse[::-1][1:len(path_reverse)-1])
 
     return path_reverse[::-1][1:len(path_reverse)-1]
 
@@ -195,3 +199,7 @@ for language in files:
     result = open("result/" + language + "/dev.p3.out", "wb")
     result.write(msg.encode("utf-8"))
     result.close()
+
+# pp.pprint(emission_dict["EN"])
+
+pp.pprint(emission_dict['EN'])
