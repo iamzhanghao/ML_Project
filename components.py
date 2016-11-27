@@ -8,15 +8,6 @@ class Buffer:
         for i in range(size):
             self.__buffer[i] = {"p": 0, "previous_state": "NA", "from_k_th": -1}
 
-    # def push(self, item, node):
-    #     for i in range(self.getSize()):
-    #         if item["p"] > self.__buffer[i]["p"]:
-    #             for j in range(self.getSize() - 1, i, -1):
-    #                 self.__buffer[j] = self.__buffer[j - 1]
-    #             self.__buffer[i] = item
-    #             self.__buffer[i]["path"].append(node)
-    #             break
-
     def push(self, probablity, previous_state, from_k_th):
         for i in range(self.getSize()):
             if probablity > self.__buffer[i]["p"]:

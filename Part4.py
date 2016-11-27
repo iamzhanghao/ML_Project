@@ -8,10 +8,8 @@ emission_dict = {}
 observed_sequences_dict = {}
 viterbi_dict = {}
 
-top=5
+top=50
 
-
-# train_params.train_transition()
 
 ####load parameters
 for language in components.files:
