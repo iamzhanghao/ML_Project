@@ -1,4 +1,6 @@
-import pickle, components
+import pickle, components, pprint
+
+pp = pprint.PrettyPrinter(indent=5)
 
 
 def train_emission():
@@ -51,9 +53,17 @@ def train_emission():
                 emission[str(i)] = {}
                 for j in y.keys():
                     emission[str(i)][j] = 1.0 / (y[j] + 1)
+        #
+        # for word in emission:
+        #     for state in y.keys():
+        #         if state not in emission[word]:
+        #             emission[word][state]=0.0
+
+        pp.pprint(y)
 
         pickle.dump(emission, open("params/emission/" + language + ".txt", "wb"))
         print("Finished training emission params for "+ language)
+
 
 
 def train_transition():
@@ -129,6 +139,6 @@ def train_transition():
         pickle.dump(transition, open("params/transition/" + language + ".txt", "wb"))
         print("Finished training transition params for "+ language)
 
-# #
-# train_emission()
-# train_transition()
+#
+train_emission()
+train_transition()

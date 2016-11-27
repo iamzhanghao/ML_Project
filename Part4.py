@@ -1,4 +1,4 @@
-import pprint, train_params, pickle, components
+import pprint, pickle, components
 from components import *
 
 pp = pprint.PrettyPrinter(indent=5)
@@ -7,6 +7,8 @@ transition_dict = {}
 emission_dict = {}
 observed_sequences_dict = {}
 viterbi_dict = {}
+
+top=5
 
 
 # train_params.train_transition()
@@ -57,11 +59,11 @@ def top_k_viterbi(k, observed_sequence, states, a_dict, b_dict):
                     else:
                         p = path_dict[layer - 1][previous_state].getP(k_th) * \
                             a_dict[previous_state][current_state] * \
-                            0.00001
+                            0.0000001
 
                     path_dict[layer][current_state].push(p, previous_state, k_th)
 
-    # path_dict printing
+    # # path_dict printing
     # for layer in path_dict:
     #     print("Layer: " + str(layer))
     #     for state in path_dict[layer]:
@@ -72,7 +74,7 @@ def top_k_viterbi(k, observed_sequence, states, a_dict, b_dict):
 
     # backtracking
     current_layer = n
-    from_k_th = 4
+    from_k_th = top-1
     path_reverse = ["stop"]
     while current_layer >= 0:
         while path_dict[current_layer + 1][path_reverse[len(path_reverse) - 1]].getBuffer()[from_k_th]['previous_state']== "NA":
@@ -110,7 +112,7 @@ for language in components.files:
     states_viterbi = [[]]
     index = 0
     for observed_sequence in observed_sequences:
-        for state in top_k_viterbi(5,observed_sequence, components.states, transition_dict[language], emission_dict[language]):
+        for state in top_k_viterbi(top,observed_sequence, components.states, transition_dict[language], emission_dict[language]):
             states_viterbi[index].append(state)
         states_viterbi.append([])
         index += 1

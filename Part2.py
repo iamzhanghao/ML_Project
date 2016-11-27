@@ -1,9 +1,6 @@
 import pickle
-import train_params, components
+import components
 
-
-print("Training emission params ...")
-train_params.train_emission()
 
 for language in components.files:
 

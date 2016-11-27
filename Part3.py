@@ -1,4 +1,4 @@
-import pickle, pprint, train_params, components
+import pickle, pprint, components
 
 pp = pprint.PrettyPrinter(indent=5)
 
@@ -7,7 +7,8 @@ emission_dict = {}
 viterbi_dict = {}
 observed_sequences_dict = {}
 
-train_params.train_transition()
+
+
 
 ####load parameters
 for language in components.files:
@@ -51,6 +52,8 @@ def viterbi(observed_sequence, states, a_dict, b_dict):
             max_p = 0
             max_previous_state = "NA"
             for previous_state in path_dict[layer - 1]:
+
+
                 if current_state in b_dict[observed_sequence[layer - 1]]:
                     p = path_dict[layer - 1][previous_state]["p"] * \
                         a_dict[previous_state][current_state] * \
@@ -58,11 +61,13 @@ def viterbi(observed_sequence, states, a_dict, b_dict):
                 else:
                     p = path_dict[layer - 1][previous_state]["p"] * \
                         a_dict[previous_state][current_state] * \
-                        0.00001
+                        0.0000001
                 if p > max_p:
                     max_p = p
                     max_previous_state = previous_state
             path_dict[layer][current_state] = {"p": max_p, "previous": max_previous_state}
+
+    # pp.pprint(path_dict)
 
     # backtracking
     current_layer = n
@@ -117,7 +122,4 @@ for language in components.files:
     result.close()
     print("result/" + language + "/dev.p3.out saved!")
 
-
-
-pp.pprint(emission_dict["EN"])
-
+# pp.pprint(emission_dict["EN"])
