@@ -8,15 +8,15 @@ emission_dict = {}
 observed_sequences_dict = {}
 viterbi_dict = {}
 
-top=50
+top=1
 
 
 ####load parameters
-for language in components.files:
-    emission = pickle.load(open("params/emission/" + language + ".txt", "rb"))
+for language in ['EN','ES']:
+    emission = pickle.load(open("test/params/emission/" + language + ".txt", "rb"))
     emission_dict[language] = emission
 
-    transition = pickle.load(open("params/transition/" + language + ".txt", "rb"))
+    transition = pickle.load(open("test/params/transition/" + language + ".txt", "rb"))
     transition_dict[language] = transition
 
 
@@ -61,13 +61,13 @@ def top_k_viterbi(k, observed_sequence, states, a_dict, b_dict):
 
                     path_dict[layer][current_state].push(p, previous_state, k_th)
 
-    # path_dict printing
-    for layer in path_dict:
-        print("Layer: " + str(layer))
-        for state in path_dict[layer]:
-            print("          state: " + state)
-            for k_th in range(k):
-                print("                  k_th: " + str(k_th), path_dict[layer][state].getBuffer()[k_th])
+    # # path_dict printing
+    # for layer in path_dict:
+    #     print("Layer: " + str(layer))
+    #     for state in path_dict[layer]:
+    #         print("          state: " + state)
+    #         for k_th in range(k):
+    #             print("                  k_th: " + str(k_th), path_dict[layer][state].getBuffer()[k_th])
 
 
     # backtracking
@@ -93,8 +93,8 @@ def top_k_viterbi(k, observed_sequence, states, a_dict, b_dict):
 # print(top_k_viterbi(5, ["New", "Year", ",", "New", "Tech", "Writers", "Gathering", "http://nblo.gs/cR1A1"], components.states,
 #               transition_dict[language], emission_dict[language]))
 
-for language in components.files:
-    file = open("raw/" + language + "/dev.in", encoding='utf8')
+for language in ['EN','ES']:
+    file = open("test/" + language + "/test.in", encoding='utf8')
     rawinput = file.readlines()
 
     observed_sequences = [[]]
@@ -120,7 +120,7 @@ for language in components.files:
     observed_sequences_dict[language] = observed_sequences
 
 ###write to file
-for language in components.files:
+for language in ['EN','ES']:
     msg = ""
     for i in range(len(viterbi_dict[language])):
         for j in range(len(viterbi_dict[language][i])):
@@ -131,8 +131,8 @@ for language in components.files:
         msg += '\n'
 
     # print(msg)
-    result = open("result/" + language + "/dev.p4.out", "wb")
+    result = open("test/" + language + "/test.out", "wb")
     result.write(msg.encode("utf-8"))
     result.close()
-    print("result/" + language + "/dev.p4.out saved!")
+    print("test/" + language + "/test.out saved!")
 

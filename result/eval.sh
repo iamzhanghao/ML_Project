@@ -28,3 +28,6 @@ python evalResult.py ES/dev.out ES/dev.p4.out
 printf "\n========== SG  ============"
 python evalResult.py SG/dev.out SG/dev.p4.out   
 
+printf "\n\n========== PART 5 ============"
+printf "\n========== EN ============"
+python evalResult.py EN/dev.out EN/dev.p5.out
