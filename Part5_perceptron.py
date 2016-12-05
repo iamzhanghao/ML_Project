@@ -5,7 +5,11 @@ pp = pprint.PrettyPrinter(indent=5)
 
 states = ["NULL", "B-negative","O", "B-neutral", "B-positive",  "I-negative", "I-neutral", "I-positive"]
 
-ITER = 2
+ITER = 1
+
+TOP_train = 1
+
+TOP_predict = 1
 
 def viterbi(k, transition, emission, words):
     # print("Veterbi")
@@ -108,7 +112,7 @@ def perceptron(tag_predictions,tags,words, transition, emission):
     return transition,emission
 
 
-for language in ['ES']:
+for language in ['EN','ES']:
     train_file = open("raw/" + language + "/train", encoding='utf8')
     test_file = open("raw/" + language + "/dev.in", encoding='utf8')
 
@@ -175,12 +179,12 @@ for language in ['ES']:
     ##train
     for i in range(ITER):
         for j in range(len(train_tag_data)):
-            prediction = viterbi(1, transition, emission, train_word_data[j])
+            prediction = viterbi(TOP_train, transition, emission, train_word_data[j])
             transition, emission = perceptron(prediction, train_tag_data[j], train_word_data[j], transition, emission)
 
     msg=''
     for i in range(len(test_word_data)):
-        prediction = viterbi(1, transition, emission, test_word_data[i])
+        prediction = viterbi(TOP_predict, transition, emission, test_word_data[i])
         for j in range(len(test_word_data[i])):
             msg += test_word_data[i][j]
             msg += ' '
