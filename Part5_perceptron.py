@@ -5,8 +5,10 @@ pp = pprint.PrettyPrinter(indent=5)
 
 states = ["NULL", "B-negative","O", "B-neutral", "B-positive",  "I-negative", "I-neutral", "I-positive"]
 
+ITER = 2
 
 def viterbi(k, transition, emission, words):
+    # print("Veterbi")
     n=len(words)
 
     path_dict={}
@@ -21,12 +23,14 @@ def viterbi(k, transition, emission, words):
 
 
     for layer in path_dict:
-        if layer == 0:
-            for current_state in states[1:]:
+
+
+        if layer == n:
+            for previous_state in states[1:]:
                 for k_th in range(k):
-                    p = transition['NULL']['NULL'][current_state] + \
-                        emission[words[layer]][current_state]
-                    path_dict[layer][current_state].push(p,"NA",k_th)
+                    p = path_dict[layer - 1][previous_state].getP(k_th) + \
+                        transition[previous_state][current_state]['NULL']
+                    path_dict[layer]['stop'].push(p, previous_state, k_th)
             continue
 
         if layer == 1:
@@ -39,13 +43,15 @@ def viterbi(k, transition, emission, words):
                         path_dict[layer][current_state].push(p, previous_state, k_th)
             continue
 
-        if layer == n:
-            for previous_state in states[1:]:
+        if layer == 0:
+            for current_state in states[1:]:
                 for k_th in range(k):
-                    p = path_dict[layer - 1][previous_state].getP(k_th) + \
-                        transition[previous_state][current_state]['NULL']
-                    path_dict[layer]['stop'].push(p, previous_state, k_th)
+                    p = transition['NULL']['NULL'][current_state] + \
+                        emission[words[layer]][current_state]
+                    path_dict[layer][current_state].push(p,"NA",k_th)
             continue
+
+
 
 
         for previous_state in states[1:]:
@@ -102,7 +108,7 @@ def perceptron(tag_predictions,tags,words, transition, emission):
     return transition,emission
 
 
-for language in ['EN']:
+for language in ['ES']:
     train_file = open("raw/" + language + "/train", encoding='utf8')
     test_file = open("raw/" + language + "/dev.in", encoding='utf8')
 
@@ -148,7 +154,7 @@ for language in ['EN']:
     lines = test_file.readlines()
     for line in lines:
         if line != "\n":
-            word=line.split(" ")[0][:-1]
+            word=line[:-1]
             if word not in emission.keys():
                 emission[word]={}
                 for state in states[1:]:
@@ -161,13 +167,13 @@ for language in ['EN']:
             index += 1
             test_word_data.append([])
             continue
-        word = line.split(' ')[0][:-1]
+        word = line[:-1]
         test_word_data[index].append(word)
 
     test_word_data.pop()
 
     ##train
-    for i in range():
+    for i in range(ITER):
         for j in range(len(train_tag_data)):
             prediction = viterbi(1, transition, emission, train_word_data[j])
             transition, emission = perceptron(prediction, train_tag_data[j], train_word_data[j], transition, emission)
