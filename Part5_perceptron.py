@@ -5,11 +5,13 @@ pp = pprint.PrettyPrinter(indent=5)
 
 states = ["NULL", "B-negative", "O", "B-neutral", "B-positive", "I-negative", "I-neutral", "I-positive"]
 
-ITER = 80
+ITER = 70
 
 TOP_train = 1
 
 TOP_predict = 1
+
+CLEAN_DATA = True
 
 print("ITER", ITER)
 print("TOP_train", TOP_train)
@@ -18,6 +20,8 @@ print("TOP_predict", TOP_predict)
 
 def viterbi(k, transition, emission, words):
     # print("Veterbi")
+    # print(words)
+
     n = len(words)
 
     path_dict = {}
@@ -115,7 +119,11 @@ def perceptron(tag_predictions, tags, words, transition, emission):
 
 
 def clean(word):
-    pass
+    if CLEAN_DATA:
+        word = word.replace("\n",'')
+        return word.lower()
+    else:
+        return word
 
 
 print("Computing....")
@@ -134,32 +142,36 @@ for language in ['EN']:
                 transition[state][state_2][state_3] = 0
 
     lines = train_file.readlines()
-    emission = {}
 
+    emission = {}
     for line in lines:
         if line != "\n":
             word = line.split(" ")[0]
             if word not in emission.keys():
-                emission[word] = {}
+                emission[clean(word)] = {}
                 for state in states[1:]:
-                    emission[word][state] = 0
+                    emission[clean(word)][state] = 0
 
     train_tag_data = [[]]
     train_word_data = [[]]
+    cleaned_train_word_data=[[]]
     index = 0
     for line in lines:
         if line == '\n':
             index += 1
             train_tag_data.append([])
             train_word_data.append([])
+            cleaned_train_word_data.append([])
             continue
         word = line.split(' ')[0]
         tag = line.split(' ')[1]
         train_tag_data[index].append(tag[:-1])
         train_word_data[index].append(word)
+        cleaned_train_word_data[index].append(clean(word))
 
     train_tag_data.pop()
     train_word_data.pop()
+    cleaned_train_word_data.pop()
 
     # add new word
     lines = test_file.readlines()
@@ -167,31 +179,37 @@ for language in ['EN']:
         if line != "\n":
             word = line[:-1]
             if word not in emission.keys():
-                emission[word] = {}
+                emission[clean(word)] = {}
                 for state in states[1:]:
-                    emission[word][state] = 0
+                    emission[clean(word)][state] = 0
 
     test_word_data = [[]]
+    cleaned_test_word_data = [[]]
     index = 0
     for line in lines:
         if line == '\n':
             index += 1
             test_word_data.append([])
+            cleaned_test_word_data.append([])
             continue
         word = line[:-1]
         test_word_data[index].append(word)
+        cleaned_test_word_data[index].append(clean(word))
 
     test_word_data.pop()
+    cleaned_test_word_data.pop()
+
+
 
     ##train
     for i in range(ITER):
         for j in range(len(train_tag_data)):
-            prediction = viterbi(TOP_train, transition, emission, train_word_data[j])
-            transition, emission = perceptron(prediction, train_tag_data[j], train_word_data[j], transition, emission)
+            prediction = viterbi(TOP_train, transition, emission, cleaned_train_word_data[j])
+            transition, emission = perceptron(prediction, train_tag_data[j], cleaned_train_word_data[j], transition, emission)
 
     msg = ''
     for i in range(len(test_word_data)):
-        prediction = viterbi(TOP_predict, transition, emission, test_word_data[i])
+        prediction = viterbi(TOP_predict, transition, emission, cleaned_test_word_data[i])
         for j in range(len(test_word_data[i])):
             msg += test_word_data[i][j]
             msg += ' '
