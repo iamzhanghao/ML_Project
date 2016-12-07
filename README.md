@@ -14,4 +14,16 @@
 ##Part 5
 Just run Part5_perceptron.py and test.p5.out will be generated for EN and ES
 
+Ensure the parameter are:
+
+ITER = 80
+
+TOP_train = 1
+
+TOP_predict = 1
+
+CLEAN_DATA = False
+
+TEST = True
+
 

@@ -6,24 +6,18 @@ pp = pprint.PrettyPrinter(indent=5)
 states = ["NULL", "B-negative", "O", "B-neutral", "B-positive", "I-negative", "I-neutral", "I-positive"]
 
 ITER = 80
-
 TOP_train = 1
-
 TOP_predict = 1
-
-CLEAN_DATA = True
-
-STATE_WEIGHT = 1
-WORD_WEIGHT = 1
+CLEAN_DATA = False
+TEST = True
 
 print("ITER", ITER)
 print("TOP_train", TOP_train)
 print("TOP_predict", TOP_predict)
 
-# Emotionless punctration marks
+# Emotionless punctuation marks
 # marks = {',', ';', '-', ':', '@', '#', '.', ',', '"', '$', '(', ')', 'Â', '|'}
 marks = {'@', '#','-'}
-
 
 def viterbi(k, transition, emission, words):
     # print("Veterbi")
@@ -139,12 +133,15 @@ def clean(word):
         return word
 
 
-print("Computing....")
+print("Start computing....")
 
-for language in ['EN']:
+for language in ['ES']:
     print(language)
     train_file = open("raw/" + language + "/train", encoding='utf8')
-    test_file = open("raw/" + language + "/dev.in", encoding='utf8')
+    if TEST:
+        test_file = open("test/" + language + "/test.in", encoding='utf8')
+    else:
+        test_file = open("raw/" + language + "/dev.in", encoding='utf8')
 
     transition = {}
     for state in states:
@@ -229,28 +226,33 @@ for language in ['EN']:
             msg += '\n'
         msg += '\n'
 
-    result = open("result/" + language + "/dev.p5.out", "wb")
+
+    if TEST:
+        result = open("result/" + language + "/test.out", "wb")
+    else:
+        result = open("result/" + language + "/dev.p5.out", "wb")
+
     result.write(msg.encode("utf-8"))
     result.close()
 
-    # print cleaned:
-    msg = ''
-    for i in range(len(cleaned_test_word_data)):
-        prediction = viterbi(TOP_predict, transition, emission, cleaned_test_word_data[i])
-        for j in range(len(cleaned_test_word_data[i])):
-            msg += cleaned_test_word_data[i][j]
-            msg += ' '
-            msg += prediction[j]
-            msg += '\n'
-        msg += '\n'
-
-    result = open("result/" + language + "/dev.p5_cleaned.out", "wb")
-    result.write(msg.encode("utf-8"))
-    result.close()
-
-    pp.pprint(emission)
-    pp.pprint(transition)
-    print(language, " Finished")
+    # # print cleaned:
+    # msg = ''
+    # for i in range(len(cleaned_test_word_data)):
+    #     prediction = viterbi(TOP_predict, transition, emission, cleaned_test_word_data[i])
+    #     for j in range(len(cleaned_test_word_data[i])):
+    #         msg += cleaned_test_word_data[i][j]
+    #         msg += ' '
+    #         msg += prediction[j]
+    #         msg += '\n'
+    #     msg += '\n'
+    #
+    # result = open("result/" + language + "/dev.p5_cleaned.out", "wb")
+    # result.write(msg.encode("utf-8"))
+    # result.close()
+    #
+    # pp.pprint(emission)
+    # pp.pprint(transition)
+    # print(language, " Finished")
 
 print("Done")
 

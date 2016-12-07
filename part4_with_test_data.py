@@ -131,7 +131,7 @@ for language in ['EN','ES']:
         msg += '\n'
 
     # print(msg)
-    result = open("test/" + language + "/test.out", "wb")
+    result = open("result/" + language + "/test_part4.out", "wb")
     result.write(msg.encode("utf-8"))
     result.close()
     print("test/" + language + "/test.out saved!")
