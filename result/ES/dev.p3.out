@@ -2018,10 +2018,10 @@ EL B-negative
 MUNICIPIO I-negative
 AUTONOMO I-negative
 DE I-negative
-SAN I-negative
-JUAN I-negative
-COPALA I-negative
-NECESITA I-negative
+SAN O
+JUAN B-positive
+COPALA I-positive
+NECESITA I-positive
 TU O
 APOYO O
 . O
@@ -3696,13 +3696,13 @@ este O
 v\xeddeo O
 . O
 -- O
-"LA B-negative
-PREGUNTA" I-negative
-REMIX I-negative
-J I-negative
-Alvarez I-negative
-FT I-negative
-Jory I-negative
+"LA B-neutral
+PREGUNTA" I-neutral
+REMIX I-neutral
+J I-neutral
+Alvarez I-neutral
+FT I-neutral
+Jory I-neutral
 , O
 Daddy B-negative
 Yankee I-negative
@@ -8668,7 +8668,7 @@ Sebin B-neutral
 
 Env\xedo B-negative
 carta I-negative
-Gregorio O
+Gregorio B-neutral
 Sanchez B-positive
 al O
 Por O
@@ -12894,10 +12894,10 @@ acto O
 luctuoso O
 de O
 los O
-funcionarios B-negative
-federales I-negative
-en O
-Campo O
+funcionarios B-neutral
+federales I-neutral
+en I-neutral
+Campo I-neutral
 Marte O
 
 Ch\xe1vez B-neutral
@@ -16166,9 +16166,9 @@ pierdo O
 ese O
 concierto O
 como O
-el O
-de O
-guetta O
+el B-positive
+de I-positive
+guetta I-positive
 !!! O
 
 @tuPSUclaro B-neutral
@@ -16964,7 +16964,7 @@ GT I-neutral
 @CaracolTV B-negative
 A I-negative
 Ricardo B-negative
-Arjona O
+Arjona B-neutral
 le O
 falta O
 concentraci\xf3n O

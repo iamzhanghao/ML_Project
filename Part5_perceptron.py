@@ -3,19 +3,26 @@ from components import Buffer
 
 pp = pprint.PrettyPrinter(indent=5)
 
-states = ["NULL", "B-negative", "O", "B-neutral", "B-positive", "I-negative", "I-neutral", "I-positive"]
+states = ["NULL", "O","B-negative",  "B-neutral", "B-positive", "I-negative", "I-neutral", "I-positive"]
 
-ITER = 70
+ITER = 80
 
 TOP_train = 1
 
 TOP_predict = 1
 
-CLEAN_DATA = True
+CLEAN_DATA = False
+
+STATE_WEIGHT = 1
+WORD_WEIGHT = 1
 
 print("ITER", ITER)
 print("TOP_train", TOP_train)
 print("TOP_predict", TOP_predict)
+
+# Emotionless punctration marks
+# marks = {',', ';', '-', ':', '@', '#', '.', ',', '"', '$', '(', ')', 'Â', '|'}
+marks = {'@', '#','-'}
 
 
 def viterbi(k, transition, emission, words):
@@ -120,8 +127,14 @@ def perceptron(tag_predictions, tags, words, transition, emission):
 
 def clean(word):
     if CLEAN_DATA:
-        word = word.replace("\n",'')
-        return word.lower()
+        word = word.lower()
+        # word = word.replace("\n", '')
+        # if word[:7] == 'http://':
+        #     return "THIS IS A URL"
+        # if word in marks:
+        #     return "THIS IS A USELESS MARK"
+
+        return word
     else:
         return word
 
@@ -154,7 +167,7 @@ for language in ['EN']:
 
     train_tag_data = [[]]
     train_word_data = [[]]
-    cleaned_train_word_data=[[]]
+    cleaned_train_word_data = [[]]
     index = 0
     for line in lines:
         if line == '\n':
@@ -199,13 +212,12 @@ for language in ['EN']:
     test_word_data.pop()
     cleaned_test_word_data.pop()
 
-
-
     ##train
     for i in range(ITER):
         for j in range(len(train_tag_data)):
             prediction = viterbi(TOP_train, transition, emission, cleaned_train_word_data[j])
-            transition, emission = perceptron(prediction, train_tag_data[j], cleaned_train_word_data[j], transition, emission)
+            transition, emission = perceptron(prediction, train_tag_data[j], cleaned_train_word_data[j], transition,
+                                              emission)
 
     msg = ''
     for i in range(len(test_word_data)):
@@ -221,12 +233,28 @@ for language in ['EN']:
     result.write(msg.encode("utf-8"))
     result.close()
 
+    # print cleaned:
+    msg = ''
+    for i in range(len(cleaned_test_word_data)):
+        prediction = viterbi(TOP_predict, transition, emission, cleaned_test_word_data[i])
+        for j in range(len(cleaned_test_word_data[i])):
+            msg += cleaned_test_word_data[i][j]
+            msg += ' '
+            msg += prediction[j]
+            msg += '\n'
+        msg += '\n'
+
+    result = open("result/" + language + "/dev.p5_cleaned.out", "wb")
+    result.write(msg.encode("utf-8"))
+    result.close()
+
     pp.pprint(emission)
     pp.pprint(transition)
-    print(language)
+    print(language, " Finished")
 
 print("Done")
 
 print("ITER", ITER)
 print("TOP_train", TOP_train)
 print("TOP_predict", TOP_predict)
+print("CLEAN ", CLEAN_DATA)

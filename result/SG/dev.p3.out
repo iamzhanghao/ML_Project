@@ -1012,8 +1012,8 @@ you O
 #dickhead O
 
 @Kieran_Clare1 B-negative
-cba I-negative
-wae I-negative
+cba O
+wae O
 it O
 al O
 get O
@@ -1217,10 +1217,10 @@ for O
 their O
 2017 O
 tour O
-#NightDriverTour B-negative
-#iwannabewhatyouron I-negative
-#bustedforever I-negative
-@charliesimo O
+#NightDriverTour B-positive
+#iwannabewhatyouron I-positive
+#bustedforever I-positive
+@charliesimo B-positive
 @mattjwillis B-positive
 @JamesBourne B-positive
 
@@ -1244,9 +1244,9 @@ East B-neutral
 Hartford I-neutral
 : I-neutral
 scattered I-neutral
-clouds I-neutral
-, I-neutral
-62 I-neutral
+clouds O
+, O
+62 B-neutral
 ° I-neutral
 F77 I-neutral
 % O
@@ -1426,8 +1426,8 @@ Lols O
 2016 O
 " O
 #PokemonGO B-positive
-#Pokemon I-positive
-#FireType I-positive
+#Pokemon B-neutral
+#FireType I-neutral
 … O
 https://t.co/3Bf0BKETOY O
 
@@ -2050,9 +2050,9 @@ match O
 Blackout B-negative
 ( O
 @ O
-Crystal B-neutral
-Crown I-neutral
-Hotel I-neutral
+Crystal O
+Crown O
+Hotel B-neutral
 Johor I-neutral
 Bahru I-neutral
 in I-neutral
@@ -2131,9 +2131,9 @@ https://t.co/UKKrJeeDcZ O
 @SparkleWildfire I-negative
 @dmuhls I-negative
 @DMUpharmacy I-negative
-@LeicesterPharm I-negative
-Max I-negative
-Faktor I-negative
+@LeicesterPharm O
+Max B-positive
+Faktor I-positive
 was O
 a O
 pharm's O
@@ -2547,9 +2547,9 @@ cables O
 but O
 thank O
 goodness O
-Sony B-negative
-attached I-negative
-numbered I-negative
+Sony O
+attached O
+numbered B-negative
 labels I-negative
 to O
 them O
@@ -4453,9 +4453,9 @@ devised O
 https://t.co/xeNmfFzue1 I-negative
 
 Is O
-Ed's B-negative
-Easy I-negative
-Diner I-negative
+Ed's O
+Easy O
+Diner O
 about O
 to O
 be O
@@ -5004,14 +5004,14 @@ for I-neutral
 cowboys I-neutral
 . O
 @ O
-Ebenezer's B-positive
-Barn I-positive
-& I-positive
-amp I-positive
-; I-positive
-Grill I-positive
-At I-positive
-Ruby's I-positive
+Ebenezer's B-neutral
+Barn I-neutral
+& I-neutral
+amp I-neutral
+; I-neutral
+Grill I-neutral
+At O
+Ruby's B-positive
 Inn I-positive
 https://t.co/H8WfYHZHxp I-positive
 
@@ -6259,8 +6259,8 @@ weddings O
 xo O
 
 Taped B-negative
-interviews I-negative
-@ErinBurnett I-negative
+interviews O
+@ErinBurnett B-negative
 https://t.co/e6eaERMuce I-negative
 
 @mlguzma B-negative
@@ -6939,9 +6939,9 @@ https://t.co/rZBv4ojFeq O
 Opened B-positive
 Street I-positive
 or O
-Sidewalk B-negative
-Cleaning I-negative
-request I-negative
+Sidewalk O
+Cleaning O
+request O
 via O
 android O
 at O
@@ -7348,7 +7348,7 @@ Join O
 the O
 Great O
 Wolf B-negative
-Lodge O
+Lodge B-neutral
 team O
 ! O
 See O
@@ -7474,12 +7474,12 @@ day O
 I'm O
 at O
 First O
-Culinary B-neutral
-Restaurant I-neutral
-- I-neutral
-@fcr_amk I-neutral
-in I-neutral
-Singapore I-neutral
+Culinary O
+Restaurant O
+- O
+@fcr_amk O
+in O
+Singapore B-neutral
 https://t.co/C7chteaIDd I-neutral
 
 @BooRicardoo B-negative
@@ -7977,11 +7977,11 @@ GCSES B-negative
 https://t.co/uPi0Rh7BSZ I-negative
 #Gloucestershire I-negative
 
-The B-negative
-southbound I-negative
-SR I-negative
-99 I-negative
-Battery I-negative
+The B-positive
+southbound I-positive
+SR I-positive
+99 O
+Battery B-negative
 St I-negative
 Tunnel I-negative
 is O
@@ -9242,11 +9242,11 @@ like O
 Kobe B-positive
 . O
 
-Egypt B-positive
-ada I-positive
-hot I-positive
-air I-positive
-balloon I-positive
+Egypt B-neutral
+ada B-neutral
+hot O
+air O
+balloon O
 alright O
 by O
 His O
@@ -10134,8 +10134,8 @@ garbage O
 soulmates B-negative
 . I-negative
 @MalibuCharlie I-negative
-89 I-negative
-https://t.co/CHmqhyoAQt I-negative
+89 O
+https://t.co/CHmqhyoAQt O
 
 I'm O
 at O
@@ -10942,11 +10942,11 @@ Hearing B-negative
 from O
 Linda B-positive
 Weatherspoon I-positive
-, I-positive
-AASL I-positive
-Regional I-positive
-3 I-positive
-Director I-positive
+, O
+AASL B-neutral
+Regional I-neutral
+3 I-neutral
+Director I-neutral
 about O
 Connecting B-negative
 ESSA I-negative
@@ -11114,9 +11114,9 @@ Rooney B-positive
 #DolceAmore I-negative
 Parangal I-negative
 Paulinian I-negative
-⒋ I-negative
-#OneTeam I-negative
-SG O
+⒋ O
+#OneTeam B-neutral
+SG I-neutral
 ⒌ O
 Washington B-positive
 2016 O
@@ -11867,8 +11867,8 @@ today O
 @DurhamBirdClub B-negative
 @teesmouthbc I-negative
 @Natures_Voice I-negative
-@_BTO I-negative
-https://t.co/NX4aSgWH16 I-negative
+@_BTO O
+https://t.co/NX4aSgWH16 O
 
 The B-neutral
 Bean I-neutral
@@ -12420,10 +12420,10 @@ impact O
 @SLTconference B-negative
 #slt2016 I-negative
 #socialLIGHTMovememt I-negative
-#tech I-negative
-#yvr I-negative
-#startup I-negative
-#learn I-negative
+#tech O
+#yvr O
+#startup O
+#learn O
 
 @beargryllslive B-negative
 we O
@@ -12975,17 +12975,17 @@ on O
 Both O
 directions O
 from O
-Niagara O
-and O
-Orleans B-positive
-County I-positive
-Line I-positive
-to I-positive
-Town I-positive
-of I-positive
-Lockport I-positive
-; I-positive
-Town I-positive
+Niagara I-neutral
+and I-neutral
+Orleans I-neutral
+County I-neutral
+Line I-neutral
+to I-neutral
+Town I-neutral
+of I-neutral
+Lockport I-neutral
+; I-neutral
+Town I-neutral
 of O
 . O
 . O
@@ -14218,8 +14218,8 @@ online O
 https://t.co/looAx1pUu2 O
 
 Branded B-negative
-tak I-negative
-semestinya I-negative
+tak O
+semestinya B-negative
 kaya I-negative
 . O
 Its O
@@ -14239,14 +14239,14 @@ from O
 th O
 Avenue O
 : O
-W O
-112 B-negative
-th I-negative
-Street I-negative
-to O
-5 O
-th O
-Avenue O
+W B-neutral
+112 I-neutral
+th I-neutral
+Street I-neutral
+to I-neutral
+5 I-neutral
+th I-neutral
+Avenue I-neutral
 : O
 96 B-negative
 th I-negative
@@ -14409,13 +14409,13 @@ Thanks O
 NEC O
 , O
 especially O
-Mr B-negative
-. I-negative
-Kok I-negative
-Tiong I-negative
-Goh I-negative
-and I-negative
-Aileen I-negative
+Mr B-neutral
+. I-neutral
+Kok I-neutral
+Tiong I-neutral
+Goh I-neutral
+and O
+Aileen B-negative
 Gusni I-negative
 @leen_aileen I-negative
 for O
@@ -14751,10 +14751,10 @@ previously O
 ? O
 
 I'm O
-at O
-Eight O
-8 O
-Korean O
+at B-neutral
+Eight I-neutral
+8 I-neutral
+Korean I-neutral
 BBQ O
 https://t.co/0A0z9TkdR7 O
 
@@ -14808,8 +14808,8 @@ posted O
 a O
 photo O
 @ O
-Hotel O
-Jen O
+Hotel B-neutral
+Jen I-neutral
 Puteri B-positive
 Harbour I-positive
 , I-positive
@@ -15212,10 +15212,10 @@ D O
 Double B-positive
 E O
 on O
-@Logical3Radio B-negative
-https://t.co/nfe5WgdKBY I-negative
-#HouseMusic I-negative
-#FunHouse I-negative
+@Logical3Radio B-positive
+https://t.co/nfe5WgdKBY I-positive
+#HouseMusic B-positive
+#FunHouse I-positive
 
 I'm O
 at O
@@ -15344,9 +15344,9 @@ SavannahBanana I-negative
 Soon O
 enough O
 my O
-eager B-negative
-Easter I-negative
-Bunny I-negative
+eager O
+Easter O
+Bunny O
 . O
 Soon O
 enough O
@@ -15993,8 +15993,8 @@ https://t.co/VFu5wTMbga O
 @PatKennyNT B-negative
 @ionainstitute I-negative
 Maria I-negative
-supports I-negative
-criminalising I-negative
+supports O
+criminalising O
 women O
 who O
 self O
@@ -17915,9 +17915,9 @@ SO O
 PROUD O
 OF O
 YOU O
-BABE B-negative
-@SabrinaAnnLynn I-negative
-#EVOLutionAtMidnight I-negative
+BABE O
+@SabrinaAnnLynn O
+#EVOLutionAtMidnight B-negative
 #EVOLution I-negative
 
 @chuckwoolery B-negative
@@ -17956,8 +17956,8 @@ https://t.co/uNehZZbQEz O
 
 ACW B-negative
 Chelsea B-negative
-Box I-negative
-43 I-negative
+Box O
+43 O
 . O
 Fire O
 location O
@@ -18341,10 +18341,10 @@ School I-neutral
 https://t.co/9bg26GjgVA I-neutral
 
 I'm O
-at O
-Eight O
-8 O
-Korean O
+at B-neutral
+Eight I-neutral
+8 I-neutral
+Korean I-neutral
 BBQ O
 https://t.co/0A0z9TkdR7 O
 
@@ -18692,8 +18692,8 @@ Hahaha O
 @Foursquare B-negative
 @dens I-negative
 Adding O
-a O
-Place O
+a B-neutral
+Place I-neutral
 to O
 a O
 List O
@@ -18854,10 +18854,10 @@ to O
 implement O
 . O
 
-Panic B-negative
-at O
-the O
-Disco O
+Panic B-neutral
+at I-neutral
+the I-neutral
+Disco I-neutral
 rocking O
 it O
 out O
@@ -19320,9 +19320,9 @@ fan O
 . O
 @NHLBruins O
 
-Eating B-positive
-cheese I-positive
-fries I-positive
+Eating O
+cheese B-neutral
+fries O
 and O
 watching O
 the O
@@ -19763,9 +19763,9 @@ park I-positive
 #absolutenutters I-positive
 ! O
 
-Kari B-negative
-Lock I-negative
-Morgan O
+Kari B-neutral
+Lock B-neutral
+Morgan B-neutral
 also O
 won O
 over O
@@ -19919,11 +19919,11 @@ Sponsors I-negative
 of I-negative
 MSNBC I-negative
 , O
-CNN B-neutral
-, I-neutral
-CBS I-neutral
-, I-neutral
-AP I-neutral
+CNN B-negative
+, O
+CBS B-negative
+, O
+AP B-neutral
 , I-neutral
 ABC I-neutral
 , I-neutral
@@ -20492,8 +20492,8 @@ Again O
 https://t.co/dJbgmkYfWK O
 via O
 #Hillary B-negative
-#millennials I-negative
-#hillary2016 I-negative
+#millennials O
+#hillary2016 B-negative
 https://t.co/vj8tMEzVYh I-negative
 
 @BeastModePT B-negative
@@ -21958,11 +21958,11 @@ Hawker I-neutral
 Centre I-neutral
 https://t.co/cfGnhDQH4u I-neutral
 
-Union B-neutral
-City I-neutral
-Blue I-neutral
-by I-neutral
-Blondie I-neutral
+Union B-negative
+City I-negative
+Blue O
+by O
+Blondie O
 is O
 #nowplaying O
 in O
@@ -22410,9 +22410,9 @@ proof O
 ? O
 #WhyWomenDontReport O
 
-@JemTheNewbie B-negative
-@Calderdale I-negative
-@RobMitch92 O
+@JemTheNewbie B-neutral
+@Calderdale B-neutral
+@RobMitch92 B-neutral
 We O
 certainly O
 will O
@@ -23308,9 +23308,9 @@ beautiful O
 McLeod B-neutral
 Plantation I-neutral
 Historic I-neutral
-Site I-neutral
-reopens I-neutral
-Thursday I-neutral
+Site O
+reopens O
+Thursday O
 morning O
 at O
 9 O
@@ -25347,9 +25347,9 @@ Durian B-negative
 feast I-negative
 with O
 my O
-SGC B-negative
-familyyy I-negative
-Kampung I-negative
+SGC O
+familyyy O
+Kampung B-negative
 abang I-negative
 norishams I-negative
 7 I-negative
@@ -26694,12 +26694,12 @@ Run O
 ! O
 ! O
 @ O
-NTU B-positive
-Sports I-positive
-and I-positive
-Recreation I-positive
-Centre I-positive
-https://t.co/r9kzJZbvaM I-positive
+NTU B-negative
+Sports O
+and O
+Recreation B-negative
+Centre I-negative
+https://t.co/r9kzJZbvaM I-negative
 
 I'm O
 at O
@@ -26809,9 +26809,9 @@ ponder B-negative
 Great O
 review O
 about O
-@LuvaHairDaySpa B-negative
-hairstylist I-negative
-Luiz I-negative
+@LuvaHairDaySpa O
+hairstylist O
+Luiz B-negative
 Soares I-negative
 amazing O
 #colorist O
@@ -27107,12 +27107,12 @@ Mary B-positive
 Seacole I-positive
 documentary I-positive
 about O
-Crimean O
-War O
-nurse's B-negative
-pioneering I-negative
-statue I-negative
-https://t.co/uZ94yis63U I-negative
+Crimean B-neutral
+War B-neutral
+nurse's I-neutral
+pioneering I-neutral
+statue O
+https://t.co/uZ94yis63U B-negative
 #BHM I-negative
 https://t.co/U8XQ4TMmZV I-negative
 
@@ -27443,10 +27443,10 @@ https://t.co/a8Ob9uQ9uD I-negative
 
 I'm O
 at O
-Just O
-Acia O
-in O
-Singapore B-neutral
+Just B-neutral
+Acia I-neutral
+in I-neutral
+Singapore I-neutral
 https://t.co/F9G4YhVNri O
 
 See O
@@ -29757,10 +29757,10 @@ https://t.co/6X4agm8eOZ I-negative
 @ O
 Blk B-neutral
 466 I-neutral
-Study I-neutral
-Corner I-neutral
-in I-neutral
-Singapore I-neutral
+Study O
+Corner O
+in O
+Singapore B-neutral
 w O
 / O
 @joellexgje B-neutral
@@ -30743,10 +30743,10 @@ quarter O
 I'm O
 at O
 Providence O
-Medical B-neutral
-Center I-neutral
-in I-neutral
-Farmington I-neutral
+Medical O
+Center O
+in O
+Farmington B-neutral
 Hills I-neutral
 , I-neutral
 MI I-neutral
@@ -31231,8 +31231,8 @@ you O
 for O
 the O
 next O
-Attorney O
-General's B-neutral
+Attorney I-neutral
+General's I-neutral
 ( I-neutral
 USA I-neutral
 ) I-neutral
@@ -31439,8 +31439,8 @@ throu O
 it O
 
 Hillary B-negative
-Supporter I-negative
-Loses I-negative
+Supporter O
+Loses O
 it O
 on O
 Fox B-negative
@@ -31449,9 +31449,9 @@ News I-negative
 - O
 August O
 2016 O
-https://t.co/Iwv7NMHhyu B-negative
-@newtgingrich I-negative
-@KatrinaPierson O
+https://t.co/Iwv7NMHhyu B-neutral
+@newtgingrich B-neutral
+@KatrinaPierson B-neutral
 @KellyannePolls B-negative
 @megynkelly B-negative
 
@@ -32442,8 +32442,8 @@ Konstanze I-negative
 Scharring I-negative
 of I-negative
 @SMMT I-negative
-discuss I-negative
-transport I-negative
+discuss O
+transport B-negative
 developments I-negative
 at O
 @IndustryForum O
@@ -34633,8 +34633,8 @@ delish O
 https://t.co/PJl6D88rDg O
 
 Playstation B-negative
-#PushAwardsKathNiels I-negative
-https://t.co/pSu41TWXYJ I-negative
+#PushAwardsKathNiels O
+https://t.co/pSu41TWXYJ O
 
 That's O
 my O
@@ -34981,9 +34981,9 @@ wrong O
 
 TONIGHT O
 ! O
-@AManToPet B-negative
-presents I-negative
-#MagicBoys I-negative
+@AManToPet O
+presents O
+#MagicBoys O
 ! O
 We've O
 recruited B-negative
@@ -35109,8 +35109,8 @@ Cleveland I-neutral
 
 @alishahill_ B-negative
 HAHAHAAHHA I-negative
-FUCKING I-negative
-STUPID I-negative
+FUCKING O
+STUPID B-negative
 https://t.co/Lj7DdZ4Z1i I-negative
 
 why O
@@ -35427,9 +35427,9 @@ smh O
 
 CONGRATS B-negative
 to O
-Bulldog B-negative
-Basketball I-negative
-Alum I-negative
+Bulldog O
+Basketball O
+Alum B-negative
 @bferm14 I-negative
 on O
 his O
@@ -36056,18 +36056,18 @@ Studios I-positive
 Singapore I-positive
 https://t.co/3Y26buQjih I-positive
 
-@BernardRadcliff B-negative
-@realDonaldTrump B-negative
-@MSNBC B-negative
-@FoxNews B-negative
-@SheriffClarke O
-@CNN B-positive
-THUG I-positive
-TRUMP I-positive
-HAS I-positive
-HISTORY I-positive
-OF I-positive
-DISRESPECTING I-positive
+@BernardRadcliff B-neutral
+@realDonaldTrump B-neutral
+@MSNBC B-neutral
+@FoxNews B-neutral
+@SheriffClarke B-neutral
+@CNN B-neutral
+THUG B-negative
+TRUMP B-negative
+HAS I-negative
+HISTORY O
+OF O
+DISRESPECTING O
 WOMEN O
 . O
 HIS O
@@ -36480,13 +36480,13 @@ m O
 Edmonton O
 is O
 #nowplaying O
-Put B-neutral
-Your I-neutral
-Money I-neutral
-On I-neutral
-Me I-neutral
-by I-neutral
-Struts I-neutral
+Put O
+Your O
+Money O
+On O
+Me O
+by O
+Struts O
 #cubevenue O
 
 @ryan4afcb95 B-negative
@@ -36515,8 +36515,8 @@ your O
 lips O
 from O
 Hillary B-negative
-Rotten I-negative
-Clinton I-negative
+Rotten O
+Clinton B-negative
 ' O
 s O
 asshole O
@@ -37435,8 +37435,8 @@ lauded I-negative
 by O
 neo-Nazis B-negative
 Harper I-negative
-govt I-negative
-repeals I-negative
+govt O
+repeals B-negative
 hate-speech I-negative
 clause I-negative
 https://t.co/ta6NByhQzJ I-negative
@@ -37525,13 +37525,13 @@ horizons O
 try O
 DC O
 , O
-Boston B-neutral
+Boston B-positive
+, I-positive
+Austin I-positive
 , O
-Austin B-neutral
-, I-neutral
-Boulder I-neutral
-, I-neutral
-New I-neutral
+Boulder O
+, O
+New B-neutral
 Orleans I-neutral
 , I-neutral
 Seattle O
@@ -37610,10 +37610,10 @@ cyber O
 attacks O
 on O
 the O
-Unit B-neutral
-d I-neutral
-States I-neutral
-https://t.co/CWAspNF7du I-neutral
+Unit O
+d O
+States O
+https://t.co/CWAspNF7du O
 
 I'm O
 at O
@@ -37801,7 +37801,7 @@ Coco B-neutral
 Ichibanya I-neutral
 Curry I-neutral
 House I-neutral
-@Bugis O
+@Bugis B-neutral
 + O
 https://t.co/U7TcK8Q3mc O
 
@@ -39027,8 +39027,8 @@ is O
 68.5 O
 cm O
 for O
-the O
-Junior O
+the B-positive
+Junior I-positive
 2, O
 so O
 all O
@@ -39176,8 +39176,8 @@ lines B-positive
 of I-positive
 other I-positive
 queer I-positive
-experimental I-positive
-scholars I-positive
+experimental O
+scholars O
 of O
 color O
 like O
@@ -39338,10 +39338,10 @@ Mail I-positive
 beckons I-positive
 ! O
 
-Mian B-positive
-Mian I-positive
-restaurant's I-positive
-Shogayaki I-positive
+Mian B-neutral
+Mian I-neutral
+restaurant's O
+Shogayaki B-positive
 Pork I-positive
 - O
 Yummy O
@@ -39448,7 +39448,7 @@ Formula I-neutral
 1 I-neutral
 Grand I-neutral
 Prix I-neutral
-Esplanade I-neutral
+Esplanade B-neutral
 Waterfront I-neutral
 Grandstand I-neutral
 https://t.co/AzqnQ6i27J I-neutral
@@ -39487,7 +39487,7 @@ happen O
 in O
 little O
 Haiti B-neutral
-#CriminalMinds O
+#CriminalMinds B-positive
 
 Once O
 again O
@@ -40175,9 +40175,9 @@ end O
 up O
 coming O
 
-@janbw1976 B-negative
-@workforscotland I-negative
-Simple O
+@janbw1976 B-positive
+@workforscotland I-positive
+Simple B-positive
 run O
 itself O
 without O
@@ -41091,7 +41091,7 @@ London B-neutral
 ! O
 #reminiscing O
 @ O
-Gordon O
+Gordon B-positive
 Ramsey B-neutral
 Bread I-neutral
 … O
@@ -41765,8 +41765,8 @@ player O
 #LakerNation O
 
 @justinjm1 B-negative
-@thedailybeast I-negative
-@jaymichaelson I-negative
+@thedailybeast O
+@jaymichaelson B-negative
 Trump I-negative
 meltdown I-negative
 
@@ -42010,11 +42010,11 @@ Kershaw B-positive
 
 Hunters B-positive
 are O
-shameless B-neutral
-, I-neutral
-vile I-neutral
-, I-neutral
-despicably I-neutral
+shameless O
+, O
+vile O
+, O
+despicably O
 sick O
 individuals B-negative
 . I-negative
@@ -42100,11 +42100,11 @@ New I-neutral
 Jersey I-neutral
 | O
 Cheap O
-Solar B-negative
-Wholesale I-negative
-Hawaii I-negative
-https://t.co/wEM4eVDZUK I-negative
-https://t.co/VKZN5B1P8b I-negative
+Solar B-positive
+Wholesale I-positive
+Hawaii B-positive
+https://t.co/wEM4eVDZUK I-positive
+https://t.co/VKZN5B1P8b I-positive
 
 The O
 next O
@@ -42120,8 +42120,8 @@ that's O
 weird O
 
 Follow O
-the O
-path O
+the B-positive
+path I-positive
 ( O
 at O
 ION B-neutral
@@ -42366,9 +42366,9 @@ much O
 #horror I-negative
 https://t.co/da3BTINuSZ I-negative
 
-Three B-positive
-Stars I-positive
-introduced I-positive
+Three O
+Stars O
+introduced O
 at O
 33 O
 / O
@@ -42453,11 +42453,11 @@ U_Radio B-neutral
 Edit I-neutral
 _ O
 by O
-Chris B-negative
-Jamison I-negative
-Ft I-negative
-Adam I-negative
-Levine I-negative
+Chris B-positive
+Jamison I-positive
+Ft I-positive
+Adam B-positive
+Levine I-positive
 #cubevenue O
 
 In O
@@ -42471,9 +42471,9 @@ create O
 26 O
 % O
 more O
-profitability B-negative
-#cea16 I-negative
-https://t.co/qiDKhFpb8N I-negative
+profitability O
+#cea16 O
+https://t.co/qiDKhFpb8N B-negative
 https://t.co/l9gO4ZowgX I-negative
 
 If O
@@ -42548,9 +42548,9 @@ in O
 Gatwick B-positive
 how O
 to O
-reduce B-negative
-AF I-negative
-strokes I-negative
+reduce O
+AF O
+strokes B-negative
 . I-negative
 Registration I-negative
 opens O
@@ -42634,11 +42634,11 @@ I'm O
 at O
 Blk B-neutral
 57 I-neutral
-Marine I-neutral
-Terrace I-neutral
-in I-neutral
-Singapore I-neutral
-https://t.co/afwgA4Hm04 I-neutral
+Marine B-positive
+Terrace I-positive
+in I-positive
+Singapore I-positive
+https://t.co/afwgA4Hm04 I-positive
 
 I O
 can't O
@@ -44182,8 +44182,8 @@ all O
 " O
 Selamat B-negative
 Hari I-negative
-Raya I-negative
-Idul I-negative
+Raya O
+Idul B-negative
 Fitri I-negative
 1 O
 Syawal O
@@ -44771,8 +44771,8 @@ photo O
 Grease O
 Monkey B-negative
 Barber I-negative
-Garage I-negative
-https://t.co/tGWT0DhDsl I-negative
+Garage O
+https://t.co/tGWT0DhDsl O
 
 Red B-positive
 wings I-positive
@@ -44990,10 +44990,10 @@ cool O
 ? O
 
 That O
-new B-negative
-ACDelco I-negative
-clutch I-negative
-kit I-negative
+new O
+ACDelco O
+clutch O
+kit B-negative
 https://t.co/o70JNeXmtZ I-negative
 
 @realDonaldTrump B-negative
@@ -45154,9 +45154,9 @@ opening O
 : O
 https://t.co/GGFSPjWcMO O
 #Job O
-#career B-negative
-#HigherEd I-negative
-#leadership I-negative
+#career O
+#HigherEd O
+#leadership O
 … O
 https://t.co/A2tTn5iii6 O
 
@@ -46227,9 +46227,9 @@ South B-positive
 Oxfordshire B-positive
 villages I-positive
 #LeoForMilesInMemory I-positive
-Evelyn I-positive
-, I-positive
-03.03 I-positive
+Evelyn B-neutral
+, I-neutral
+03.03 I-neutral
 . O
 16 O
 Liam B-negative
@@ -46948,8 +46948,8 @@ up O
 #meetings B-negative
 #work I-negative
 #tired I-negative
-#Chicago I-negative
-#breakfasttime I-negative
+#Chicago O
+#breakfasttime B-negative
 #cantstopyawning I-negative
 
 U O
@@ -47173,11 +47173,11 @@ wig I-negative
 
 Men's B-neutral
 Soccer B-neutral
-: I-neutral
-STU I-neutral
-3, I-neutral
-WU I-neutral
-0 I-neutral
+: O
+STU O
+3, O
+WU O
+0 O
 with O
 a O
 goal O
@@ -50291,10 +50291,10 @@ blocked O
 just O
 Dahlia O
 being O
-Dahlia O
-. O
-@ O
-Gray O
+Dahlia B-positive
+. I-positive
+@ I-positive
+Gray I-positive
 , O
 Maine B-neutral
 https://t.co/1FPLvQEkxJ I-neutral

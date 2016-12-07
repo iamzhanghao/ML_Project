@@ -98,12 +98,12 @@ So O
 predictable O
 . O
 
-Thai B-positive
-Government I-positive
-Raids I-positive
-NGO O
-Injuring B-negative
-Animals I-negative
+Thai B-neutral
+Government I-neutral
+Raids I-neutral
+NGO B-neutral
+Injuring I-neutral
+Animals B-negative
 / I-negative
 Pet I-negative
 Bloggers I-negative
@@ -3436,11 +3436,11 @@ The B-positive
 End I-positive
 Of I-positive
 The O
-Innocence B-negative
-Don I-negative
-Henley I-negative
-AL I-negative
-AIRE I-negative
+Innocence O
+Don B-neutral
+Henley I-neutral
+AL I-neutral
+AIRE I-neutral
 en O
 http://t.co/bz2xsJda O
 
@@ -7314,10 +7314,10 @@ accomplish O
 something O
 can O
 do O
-anything.- B-negative
-Kircher I-negative
-, O
-Donald O
+anything.- B-neutral
+Kircher I-neutral
+, I-neutral
+Donald I-neutral
 
 Alfie B-negative
 Allen I-negative

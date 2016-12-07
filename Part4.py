@@ -8,7 +8,7 @@ emission_dict = {}
 observed_sequences_dict = {}
 viterbi_dict = {}
 
-top=50
+top=5
 
 
 ####load parameters
@@ -61,13 +61,13 @@ def top_k_viterbi(k, observed_sequence, states, a_dict, b_dict):
 
                     path_dict[layer][current_state].push(p, previous_state, k_th)
 
-    # path_dict printing
-    for layer in path_dict:
-        print("Layer: " + str(layer))
-        for state in path_dict[layer]:
-            print("          state: " + state)
-            for k_th in range(k):
-                print("                  k_th: " + str(k_th), path_dict[layer][state].getBuffer()[k_th])
+    # # path_dict printing
+    # for layer in path_dict:
+    #     print("Layer: " + str(layer))
+    #     for state in path_dict[layer]:
+    #         print("          state: " + state)
+    #         for k_th in range(k):
+    #             print("                  k_th: " + str(k_th), path_dict[layer][state].getBuffer()[k_th])
 
 
     # backtracking
@@ -87,11 +87,6 @@ def top_k_viterbi(k, observed_sequence, states, a_dict, b_dict):
 
     return path_reverse[::-1][1:len(path_reverse) - 1]
 
-
-#
-# language = "EN"
-# print(top_k_viterbi(5, ["New", "Year", ",", "New", "Tech", "Writers", "Gathering", "http://nblo.gs/cR1A1"], components.states,
-#               transition_dict[language], emission_dict[language]))
 
 for language in components.files:
     file = open("raw/" + language + "/dev.in", encoding='utf8')
