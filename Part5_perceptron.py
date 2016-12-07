@@ -3,7 +3,7 @@ from components import Buffer
 
 pp = pprint.PrettyPrinter(indent=5)
 
-states = ["NULL", "O","B-negative",  "B-neutral", "B-positive", "I-negative", "I-neutral", "I-positive"]
+states = ["NULL", "B-negative", "O", "B-neutral", "B-positive", "I-negative", "I-neutral", "I-positive"]
 
 ITER = 80
 
@@ -131,8 +131,8 @@ def clean(word):
         # word = word.replace("\n", '')
         if word[:7] == 'http://':
             return "THIS IS A URL"
-        if word in marks:
-            return "THIS IS A USELESS MARK"
+        # if word in marks:
+        #     return "THIS IS A USELESS MARK"
 
         return word
     else:
