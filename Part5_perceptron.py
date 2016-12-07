@@ -11,7 +11,7 @@ TOP_train = 1
 
 TOP_predict = 1
 
-CLEAN_DATA = False
+CLEAN_DATA = True
 
 STATE_WEIGHT = 1
 WORD_WEIGHT = 1
@@ -127,12 +127,12 @@ def perceptron(tag_predictions, tags, words, transition, emission):
 
 def clean(word):
     if CLEAN_DATA:
-        word = word.lower()
+        # word = word.lower()
         # word = word.replace("\n", '')
-        # if word[:7] == 'http://':
-        #     return "THIS IS A URL"
-        # if word in marks:
-        #     return "THIS IS A USELESS MARK"
+        if word[:7] == 'http://':
+            return "THIS IS A URL"
+        if word in marks:
+            return "THIS IS A USELESS MARK"
 
         return word
     else:
