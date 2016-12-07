@@ -9,15 +9,16 @@ ITER = 80
 TOP_train = 1
 TOP_predict = 1
 CLEAN_DATA = False
-TEST = True
+
+# SET THIS TO FALSE FOR DEV
+TEST = False
 
 print("ITER", ITER)
 print("TOP_train", TOP_train)
 print("TOP_predict", TOP_predict)
+print("TEST", TEST)
 
-# Emotionless punctuation marks
-# marks = {',', ';', '-', ':', '@', '#', '.', ',', '"', '$', '(', ')', 'Â', '|'}
-marks = {'@', '#','-'}
+
 
 def viterbi(k, transition, emission, words):
     # print("Veterbi")
@@ -120,6 +121,10 @@ def perceptron(tag_predictions, tags, words, transition, emission):
 
 
 def clean(word):
+    # Emotionless punctuation marks
+    # marks = {',', ';', '-', ':', '@', '#', '.', ',', '"', '$', '(', ')', 'Â', '|'}
+    marks = {'@', '#', '-'}
+
     if CLEAN_DATA:
         # word = word.lower()
         # word = word.replace("\n", '')
@@ -135,7 +140,7 @@ def clean(word):
 
 print("Start computing....")
 
-for language in ['ES']:
+for language in ['ES','EN']:
     print(language)
     train_file = open("raw/" + language + "/train", encoding='utf8')
     if TEST:
@@ -260,3 +265,4 @@ print("ITER", ITER)
 print("TOP_train", TOP_train)
 print("TOP_predict", TOP_predict)
 print("CLEAN ", CLEAN_DATA)
+print("TEST", TEST)

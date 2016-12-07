@@ -4,11 +4,11 @@
 2. Run Part2.py to generate dev.p2.out for all language
 
 ##Part 3
-1. Run train_params.py ( if you already did this in part 2, no need to do it again, since it ueses the same parameters for predictoin)
+1. Run train_params.py ( if you already did this in part 2, no need to do it again, since it uses the same parameters for predictoin)
 2. Run Part3.py to generate dev.p3.out for all language
 
 ##Part 4
-1. Run train_params.py ( if you already did this in part 2 or 3, no need to do it again, since it ueses the same parameters for predictoin)
+1. Run train_params.py ( if you already did this in part 2 or 3, no need to do it again, since it uses the same parameters for predictoin)
 2. Run Part3.py to generate dev.p4.out for all language
 
 ##Part 5
@@ -24,7 +24,12 @@ TOP_predict = 1
 
 CLEAN_DATA = False
 
-TEST = True
+For dev data, set TEST = False
 
+For set data, set TEST = True
+
+
+Detailed implementation can be found on 
+https://github.com/hellozhanghao/ML_Project.git
 
 
